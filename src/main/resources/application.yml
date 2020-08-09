@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/example
+    username: postgres
+    password: postgres
+
+server:
+  port: 8080
+  servlet:
+    context-path: /mercari
+
+mybatis:
+  mapper-locations:
+    - classpath*:/com/example/demo/mapper/*.xml
+

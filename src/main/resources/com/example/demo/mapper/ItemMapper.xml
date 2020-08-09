@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ItemMapper">
+    <select id="findAll" resultMap="itemResult">
+        SELECT item.id            as id
+             , item.name          as name
+             , item.condition     as condition
+             , item.brand         as brand
+             , item.price         as price
+             , item.shipping      as shipping
+             , item.description   as description
+             , child.name         as child_category_name
+             , child.category_id  as child_category_id
+             , parent.category_id as category_id
+             , parent.name        as category_name
+        FROM (SELECT * FROM items ORDER BY id limit #{limit} offset #{offset}) as item
+                 LEFT OUTER JOIN category as child
+                                 ON item.category = child.category_id
+                 LEFT OUTER JOIN closure_table_relations as ctr1
+                                 ON ctr1.tree_descendant_id = child.category_id
+                 LEFT OUTER JOIN category as parent
+                                 ON parent.category_id = ctr1.tree_ancestor_id
+        ORDER BY id, ctr1.tree_ancestor_id
+    </select>
+
+    <select id="findBySearch" resultMap="itemResult">
+        SELECT item.id as id
+        ,item.name as name
+        ,item.condition as condition
+        ,item.brand as brand
+        ,item.price as price
+        ,item.shipping as shipping
+        ,item.description as description
+        ,child.name as child_category_name
+        ,child.category_id as child_category_id
+        ,parent.category_id as category_id
+        ,parent.name as category_name
+
+        FROM (SELECT * FROM items WHERE
+
+        <if test="child == null">
+            category is null
+        </if>
+        <if test="child != null">
+            category = #{child}
+        </if>
+        AND brand like '%${brand}%'
+        AND name like '%${itemName}%'
+        ORDER BY id limit #{limit} offset #{offset}) as item
+
+        LEFT OUTER JOIN category as child
+        ON item.category = child.category_id
+        LEFT OUTER JOIN closure_table_relations as ctr1
+        ON ctr1.tree_descendant_id = child.category_id
+        LEFT OUTER JOIN category as parent
+        ON parent.category_id = ctr1.tree_ancestor_id
+        ORDER BY id , ctr1.tree_ancestor_id
+    </select>
+
+    <select id="load" resultMap="itemResult">
+        SELECT item.id            as id
+             , item.name          as name
+             , item.condition     as condition
+             , item.brand         as brand
+             , item.price         as price
+             , item.shipping      as shipping
+             , item.description   as description
+             , child.name         as child_category_name
+             , child.category_id  as child_category_id
+             , parent.category_id as category_id
+             , parent.name        as category_name
+        FROM (SELECT * FROM items WHERE id = #{id}) as item
+                 LEFT OUTER JOIN category as child
+                                 ON item.category = child.category_id
+                 LEFT OUTER JOIN closure_table_relations as ctr1
+                                 ON ctr1.tree_descendant_id = child.category_id
+                 LEFT OUTER JOIN category as parent
+                                 ON parent.category_id = ctr1.tree_ancestor_id
+        ORDER BY id, ctr1.tree_ancestor_id
+    </select>
+
+
+    <update id="itemUpdate">
+        UPDATE items
+        set name        = #{name},
+            condition   = #{condition},
+            category    = #{category},
+            brand       = #{brand},
+            price       = #{price},
+            description = #{description}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="itemInsert">
+        INSERT INTO items (name, condition, category, brand, price, description)
+        VALUES (#{name}, #{condition}, #{category}, #{brand}, #{price}, #{description})
+    </insert>
+
+
+    <resultMap type="com.example.demo.domain.Item" id="itemResult">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="condition" property="condition"/>
+        <result column="brand" property="brand"/>
+        <result column="price" property="price"/>
+        <result column="shipping" property="shipping"/>
+        <result column="description" property="description"/>
+        <result column="child_category_id" property="childCategoryId"/>
+        <result column="child_category_name" property="childCategoryName"/>
+        <collection property="ancestorCategories" ofType="com.example.demo.domain.Category">
+            <result column="category_id" property="id"/>
+            <result column="category_name" property="name"/>
+        </collection>
+    </resultMap>
+</mapper>
