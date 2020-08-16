@@ -25,7 +25,7 @@ public class ItemService {
     @Autowired
     private ItemMybatisRepository itemMybatisRepository;
 
-    final Integer PAGE_SIZE = 30;
+    private final Integer PAGE_SIZE = 30;
 
     public List<Item> pagedFindAll(Integer page){
 

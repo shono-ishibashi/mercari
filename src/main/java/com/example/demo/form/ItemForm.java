@@ -6,6 +6,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+
+/**
+ * 商品の編集、更新をする際に使用するform
+ *
+ * 
+ */
+
 @Data
 public class ItemForm {
     private Integer id;

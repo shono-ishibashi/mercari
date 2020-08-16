@@ -15,4 +15,8 @@ public class Category {
 
     //階層が一つ下のcategoryが入るやつ
     private List<Category> descendantCategories;
+
+    public static void main(String[] args) {
+        
+    }
 }

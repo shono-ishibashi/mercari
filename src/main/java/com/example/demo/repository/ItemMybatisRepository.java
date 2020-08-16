@@ -38,4 +38,6 @@ public class ItemMybatisRepository {
     public void insert(ItemUpdateParam param) {
         sqlSessionTemplate.insert(STATEMENT+".itemInsert",param);
     }
+    
+    
 }

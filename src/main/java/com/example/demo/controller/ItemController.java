@@ -184,11 +184,14 @@ public class ItemController {
         Category category = categoryService.searchCategory(param);
 
         //depthが１のcategoryのlist
+	
         List<Category> grandParentCategories = categoryService.grandParentCategories();
-        List<Category> parentCategories = null;
+        List<Category> parentCategories;
         //depthが2のcategoryのlist
         if (nonNull(item.getAncestorCategories().get(0).getId())) {
             parentCategories = categoryService.parentCategories(item.getAncestorCategories().get(0).getId());
+        } else {
+            parentCategories = null;
         }
 
         model.addAttribute("grandParentCategories", grandParentCategories);

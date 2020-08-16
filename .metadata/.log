@@ -1,0 +1,78 @@
+!SESSION 2020-08-16 22:42:31.674 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_261
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Command-line arguments:  -data /Users/shono/IdeaProjects/mercari
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.024
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.133
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.152
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.155
+!MESSAGE Initializing Java Language Server 0.47.0.201911150945
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.166
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.167
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.updateSourceAttachment, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveSourceAttachment, java.project.addToSourcePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.186
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.core.net 1 0 2020-08-16 22:42:33.196
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16|127.0.0.1 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.208
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:33.803
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.076
+!MESSAGE Importing Maven project(s)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.124
+!MESSAGE Workspace initialized in 954ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.214
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.216
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.343
+!MESSAGE Classpath is incomplete. Only syntax errors will be reported for file:///Users/shono/IdeaProjects/mercari/src/main/java/com/example/demo/controller/CategorySelectRestController.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.631
+!MESSAGE >> document/foldingRange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:34.950
+!MESSAGE Reconciled 0. Took 176 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.106
+!MESSAGE begin problem for /CategorySelectRestController.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.121
+!MESSAGE 0 problems reported for /CategorySelectRestController.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.125
+!MESSAGE Validated 1. Took 173 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.143
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.152
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:35.155
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-08-16 22:42:40.656
+!MESSAGE >> document/didSave
